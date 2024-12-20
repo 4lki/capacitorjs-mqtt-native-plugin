@@ -115,8 +115,10 @@ public class MqttBridge implements MqttCallbackExtended {
         mqttConnectOptions.setConnectionTimeout(connectionTimeout);
         mqttConnectOptions.setKeepAliveInterval(keepAliveInterval);
         mqttConnectOptions.setAutomaticReconnect(setAutomaticReconnect);
-        mqttConnectOptions.setUserName(username);
-        mqttConnectOptions.setPassword(password.toCharArray());
+        if (username != null && !username.isEmpty()) {
+            mqttConnectOptions.setUserName(username);
+            mqttConnectOptions.setPassword(password.toCharArray());
+        }
 
         // Set the last will message if it exists
         JSObject lastWillObj = dataFromPluginCall.getJSObject("setLastWill");
