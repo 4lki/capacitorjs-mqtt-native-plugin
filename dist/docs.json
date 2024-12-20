@@ -1,0 +1,196 @@
+{
+  "api": {
+    "name": "MqttBridgePlugin",
+    "slug": "mqttbridgeplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "connect",
+        "signature": "(options: { serverURI: string; port: number; clientId: string; username: string; password: string; setCleanSession: boolean; connectionTimeout: number; keepAliveInterval: number; setAutomaticReconnect: boolean; setLastWill?: { willTopic: string; willPayload: string; willQoS: number; setRetained: boolean; }; }) => Promise<any>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ serverURI: string; port: number; clientId: string; username: string; password: string; setCleanSession: boolean; connectionTimeout: number; keepAliveInterval: number; setAutomaticReconnect: boolean; setLastWill?: { willTopic: string; willPayload: string; willQoS: number; setRetained: boolean; } | undefined; }"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "connect"
+      },
+      {
+        "name": "disconnect",
+        "signature": "() => Promise<any>",
+        "parameters": [],
+        "returns": "Promise<any>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "disconnect"
+      },
+      {
+        "name": "subscribe",
+        "signature": "(options: { topic: string; qos: number; }) => Promise<{ topic: string; qos: number; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ topic: string; qos: number; }"
+          }
+        ],
+        "returns": "Promise<{ topic: string; qos: number; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "subscribe"
+      },
+      {
+        "name": "publish",
+        "signature": "(options: { topic: string; payload: string; qos: number; retained: boolean; }) => Promise<{ topic: string; payload: string; qos: number; retained: boolean; messageId: any; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ topic: string; payload: string; qos: number; retained: boolean; }"
+          }
+        ],
+        "returns": "Promise<{ topic: string; payload: string; qos: number; retained: boolean; messageId: any; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "publish"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'onConnectionLost', listener: onConnectionLostListener) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'onConnectionLost'"
+          },
+          {
+            "name": "listener",
+            "docs": "",
+            "type": "onConnectionLostListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "onConnectionLostListener"
+        ],
+        "slug": "addlisteneronconnectionlost"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'onConnectComplete', listener: onConnectCompleteListener) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'onConnectComplete'"
+          },
+          {
+            "name": "listener",
+            "docs": "",
+            "type": "onConnectCompleteListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "onConnectCompleteListener"
+        ],
+        "slug": "addlisteneronconnectcomplete"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'onMessageArrived', listener: onMessageArrivedListener) => Promise<PluginListenerHandle> & PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'onMessageArrived'"
+          },
+          {
+            "name": "listener",
+            "docs": "",
+            "type": "onMessageArrivedListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle> & PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "onMessageArrivedListener"
+        ],
+        "slug": "addlisteneronmessagearrived"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => Promise<void>"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "onConnectionLostListener",
+      "slug": "onconnectionlostlistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(x: { connectionStatus: string; reasonCode: number; message: string; }): void",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "onConnectCompleteListener",
+      "slug": "onconnectcompletelistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(x: { reconnected: boolean; serverURI: string; }): void",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "onMessageArrivedListener",
+      "slug": "onmessagearrivedlistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(x: { topic: string; message: string; }): void",
+          "complexTypes": []
+        }
+      ]
+    }
+  ],
+  "pluginConfigs": []
+}
